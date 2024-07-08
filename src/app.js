@@ -22,5 +22,7 @@ app.use(bodyParser.json());
 app.use('/products', productRoutes);
 
 await connectToDB();
+console.log("db is connected")
+
 
 export default app;
