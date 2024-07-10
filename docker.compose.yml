@@ -1,0 +1,21 @@
+version: '3'
+
+services:
+  mongo_db:
+    container_name: database_container
+    image: mongo:latest
+    restart: always
+    volumes:
+      - mongo_db:/data/db
+
+  app:
+    build: .
+    ports:
+      - "4000:3000"
+    environment:
+      APP_NAME: Learndocker
+      PORT: 3000
+      DB_URI: mongodb+srv://Anonymous78890:Anonymous78890@dockertesting.wpf4dgt.mongodb.net/yourdbname?retryWrites=true&w=majority
+
+volumes:
+  mongo_db: {}
